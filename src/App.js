@@ -39,10 +39,10 @@ const FirebaseProvider = ({ children }) => {
     useEffect(() => {
         const initFirebase = async () => {
             try {
-				console.log("Raw Firebase Config:", process.env.REACT_APP_FIREBASE_CONFIG);
+				//console.log("Raw Firebase Config:", process.env.REACT_APP_FIREBASE_CONFIG);
                 const firebaseConfig = JSON.parse(process.env.REACT_APP_FIREBASE_CONFIG);
-				console.log('Parsed firebaseConfig:', firebaseConfig);
-				console.log('authDomain:', firebaseConfig.authDomain);
+				//console.log('Parsed firebaseConfig:', firebaseConfig);
+				//console.log('authDomain:', firebaseConfig.authDomain);
   
                 const app = initializeApp(firebaseConfig);
                 const dbInstance = getFirestore(app);
@@ -58,7 +58,7 @@ const FirebaseProvider = ({ children }) => {
                         try {
                             await signInAnonymously(authInstance);
                         } catch (error) {
-                            console.error("Firebase Auth Error:", error);
+                            //console.error("Firebase Auth Error:", error);
                             setUserId(crypto.randomUUID());
                         }
                     }
