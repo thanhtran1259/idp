@@ -39,8 +39,11 @@ const FirebaseProvider = ({ children }) => {
     useEffect(() => {
         const initFirebase = async () => {
             try {
-				console.log("Firebase Config:", process.env.REACT_APP_FIREBASE_CONFIG);
+				console.log("Raw Firebase Config:", process.env.REACT_APP_FIREBASE_CONFIG);
                 const firebaseConfig = JSON.parse(process.env.REACT_APP_FIREBASE_CONFIG);
+				console.log('Parsed firebaseConfig:', firebaseConfig);
+				console.log('authDomain:', firebaseConfig.authDomain);
+  
                 const app = initializeApp(firebaseConfig);
                 const dbInstance = getFirestore(app);
                 const authInstance = getAuth(app);
